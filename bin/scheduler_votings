@@ -1,0 +1,151 @@
+#!/usr/bin/env node
+
+var express = require('express');
+var request = require('request');
+var bodyParser = require('body-parser');
+var MongoClient = require('mongodb').MongoClient;
+var assert = require('assert');
+
+require('dotenv').config();
+
+var dateStart = getDateFormat(false);
+var dateDebug = getDateFormat(true);
+console.log('Start HEROKU SCHEDULER scheduler_votings at',dateDebug);
+
+var paramsDateStart = dateStart;
+
+deleteVotings(paramsDateStart, function(records_deleted) {
+
+  requestOptions( paramsDateStart, function(options) {
+
+    request(options, function (error, response, body) {
+
+      var body = JSON.parse(body);
+
+      if (body['ListaVotacoes']['Votacoes'] == undefined) {
+        console.log('Não existe votações no dia.');
+        return;
+      }
+
+      var documents = [];
+
+      var doc_votings = body['ListaVotacoes']['Votacoes']['Votacao'];
+      var count_votings = doc_votings.length;
+
+      if (count_votings == undefined) {
+        count_votings = 1;
+      }
+
+      for (var i = 0, len1 = count_votings; i < len1; i++) {
+
+        if (count_votings > 1) {
+          list_votings = doc_votings[i];
+        } else {
+          list_votings = doc_votings;
+        }
+
+        var list_votes = list_votings['Votos']['VotoParlamentar'];
+        var count_votes = list_votes.length;
+        var type_event = "";
+
+        if (list_votings['Secreta'] == "S") {
+          type_event = "votacao_secreta";
+        } else {
+          type_event = "votacao";
+        }
+
+        for (var j = 0, len2 = count_votes; j < len2; j++) {
+          documents.push( {
+            code: list_votings['CodigoSessao'],
+            date: list_votings['DataSessao'],
+            type: type_event,
+            description: list_votings['DescricaoVotacao'],
+            politician: list_votes[j]['CodigoParlamentar'],
+            info: list_votes[j]['Voto']
+          });
+        }
+      }
+
+      if (documents.length > 0) {
+        MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
+          assert.equal(null, err);
+
+          try {
+            var collection = db.collection('events');
+            result = collection.insertMany(documents, function(error, result) {
+              console.log(result.insertedCount + ' registros inseridos.');
+              db.close();
+            });
+          } catch (e) {
+            console.log(e);
+            db.close();
+          }
+        });
+      } else {
+        console.log('Tamanho de documento é 0.');
+      }
+    });
+  });
+});
+
+function requestOptions( dateStart, callback) {
+  var data = new Date();
+  var dia = data.getDate();
+  if (dia.toString().length == 1)
+    dia = "0"+dia;
+  var mes = data.getMonth()+1;
+  if (mes.toString().length == 1)
+    mes = "0"+mes;
+  var ano = data.getFullYear();
+  //var dateStart = ano+mes+dia
+
+  var options = {
+    url: 'http://legis.senado.leg.br/dadosabertos/plenario/lista/votacao/'+dateStart,
+    headers: {
+      'Accept': 'application/json'
+    }
+  };
+  callback(options);
+}
+
+
+function deleteVotings(dateStart, callback) {
+  MongoClient.connect(process.env.MONGODB_URI, function(err, db) {
+    assert.equal(null, err);
+
+    var dateFind = dateStart.substring(0,4)+"-"+dateStart.substring(4,6)+"-"+dateStart.substring(6,8);
+    var collection = db.collection('events');
+    var records_deleted = 0;
+
+    collection.deleteMany({date: dateFind}, function(err, result) {
+      assert.equal(null,err);
+      records_deleted = result.deletedCount;
+      console.log(String(records_deleted) + " records deletados.");
+      db.close();
+      callback(records_deleted);
+    });
+  });
+}
+
+function getDateFormat(dateTime) {
+  var dateFormart = '';
+  var date = new Date();
+  var year = date.getFullYear();
+  var month = date.getMonth() + 1;
+  month = (month < 10 ? '0' : '') + month;
+  var day  = date.getDate();
+  day = (day < 10 ? '0' : '') + day;
+
+  dateFormart = year+''+month+''+day;
+
+  if(dateTime){
+    var hour = date.getHours();
+    hour = (hour < 10 ? '0' : '') + hour;
+    var min  = date.getMinutes();
+    min = (min < 10 ? '0' : '') + min;
+    var sec  = date.getSeconds();
+    sec = (sec < 10 ? '0' : '') + sec;
+    dateFormart = dateFormart+' '+hour+':'+min+':'+sec;
+  }
+  return dateFormart;
+}

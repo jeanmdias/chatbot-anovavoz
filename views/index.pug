@@ -1,0 +1,214 @@
+extends _layout
+block content
+
+  nav.navbar.navbar-transparent.navbar-absolute
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation-example')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='http://www.anovavoz.com.br')
+          img(src='images/anovavoz-logo.png', alt='A Nova Voz')
+
+      .collapse.navbar-collapse#navigation-example
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='http://www.anovavoz.com.br/painel') Painel
+          li
+            a(href='mailto:contato@anovavoz.com.br') Contato
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://twitter.com/useanovavoz', target='_blank')
+              i.fa.fa-twitter
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://www.facebook.com/useanovavoz', target='_blank')
+              i.fa.fa-facebook-square
+          li
+            a(href='http://www.anovavoz.com.br/en') En
+
+  .wrapper
+    .header.header-filter(style='background-image: url("images/anovavoz-bg.jpg")')
+      .container
+        .row
+          .col-md-6
+            h1.title Plataforma de Transparência e Participação Social
+            a(href='https://www.facebook.com/useanovavoz', target='_blank')
+              button.btn.btn-success.btn-lg(data-toggle='modal', data-target='#myModal') Clique aqui para começar
+            h4
+              strong A Nova Voz&nbsp;
+              span é o primeiro chatbot a prover acessibilidade aos dados abertos dos Portais de Transparência — Lei nº 12.527/2011
+
+
+    .main.main-raised
+      .container
+        .text-center.section-landing
+          .features
+            .row
+              h2.title O que fazemos?
+              .col-md-4
+                .info
+                  .icon.icon-warning
+                    i.material-icons question_answer
+                  h4.info-title Transparência com dados abertos
+                  p Nos últimos anos tem crescido no Brasil a cobrança da sociedade por mais transparência. Atentos ao atual momento político nacional, criamos o primeiro chatbot a prover acessibilidade aos conjuntos de dados abertos dos Portais de Transparência.
+              .col-md-4
+                .info
+                  .icon.icon-success
+                    i.material-icons group
+                  h4.info-title Inteligência artificial para a cidadania
+                  p Utilizamos inteligência artificial para possibilitar uma nova experiência para o exercício da cidadania, de maneira amigável e que possa ser contínua. Queremos ajudar o cidadão brasileiro a exercer o seu direito de acesso à informação pública.
+              .col-md-4
+                .info
+                  .icon.icon-info
+                    i.material-icons volume_up
+                  h4.info-title Comunicação sem viés partidário
+                  p Para que um regime democrático seja considerado transparente, os cidadãos precisam saber o que seu governo está fazendo. Fornecemos um canal de comunicação sem viés partidário, para um melhor relacionamento entre governo e cidadãos.
+
+        .section.text-center
+          h2.title Onde coletamos as informações?
+          .team
+            .row
+              .col-md-4
+                .team-player
+                  a(href='https://www12.senado.leg.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-senado.jpg', alt='Camara de Deputados')
+                  h4.title Senado Federal
+                    br
+                    small.text-muted Portal de Transparência do Senado Federal
+                    br
+                    small.text-muted Brasília - DF
+              .col-md-4
+                .team-player
+                  a(href='http://www2.camara.leg.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-camara.jpg', alt='Unisinos')
+                  h4.title Câmara de Deputados
+                    br
+                    small.text-muted Portal de Transparência da Câmara de Deputados
+                    br
+                    small.text-muted Brasília - DF
+              .col-md-4
+                .team-player
+                  a(href='http://transparencia.camarapoa.rs.gov.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-poa.jpg', alt='Unisinos')
+                  h4.title Câmara Municipal de Porto Alegre
+                    br
+                    small.text-muted Portal de Transparência da Câmara Municipal
+                    br
+                    small.text-muted Porto Alegre - RS
+            .row
+              .col-md-4
+                .team-player
+                  a(href='http://www.camara.rj.gov.br/portransp.php?mt1=portransp', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-rio.jpg', alt='Camara de Deputados')
+                  h4.title Câmara Municipal do Rio de Janeiro
+                    br
+                    small.text-muted Portal de Transparência da Câmara Municipal
+                    br
+                    small.text-muted Rio de Janeiro - RJ
+              .col-md-4
+                .team-player
+                  a(href='http://www.camara.sp.gov.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-sp.jpg', alt='Unisinos')
+                  h4.title Câmara Municipal de São Paulo
+                    br
+                    small.text-muted Portal de Transparência da Câmara Municipal
+                    br
+                    small.text-muted São Paulo - SP
+              .col-md-4
+                .team-player
+                  a(href='https://www.ifc.org.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-ifc.jpg', alt='Unisinos')
+                  h4.title Câmara Legislativa do Distrito Federal
+                    br
+                    small.text-muted Instituto de Fiscalização e Controle - IFC
+                    br
+                    small.text-muted Brasília - DF
+
+        .text-center#carousel
+          .container
+            .row
+              .col-md-8.col-md-offset-2
+                h2.title Como funciona?
+                h5.description A Nova Voz é um chatbot que possibilita à você receber notificações, pelo Facebook Messenger, de votações, despesas, licenças e autoria de matérias dos políticos que você selecionar.
+                .card.card-raised.card-carousel
+                  .carousel.slide#carousel-example-generic(data-ride='carousel')
+                    .carousel.slide(data-ride='carousel')
+                      ol.carousel-indicators
+                        li.active(data-target='#carousel-example-generic', data-slide-to='0')
+                        li(data-target='#carousel-example-generic', data-slide-to='1')
+                        li(data-target='#carousel-example-generic', data-slide-to='2')
+                        li(data-target='#carousel-example-generic', data-slide-to='3')
+                      .carousel-inner
+                        .item.active
+                          img(src='images/anovavoz-chatbot-01.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-02.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-03.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-04.jpg')
+                      a.left.carousel-control(href='#carousel-example-generic', data-slide='prev')
+                        i.material-icons keyboard_arrow_left
+                      a.right.carousel-control(href='#carousel-example-generic', data-slide='next')
+                        i.material-icons keyboard_arrow_right
+
+        .section.text-center
+          h2.title Falando sobre A Nova Voz
+          .team
+            .row
+              .col-md-4
+                .team-player
+                  a(href='https://oglobo.globo.com/rio/plataforma-apresenta-no-reage-rioaplicativo-em-que-possivel-ter-informacoes-sobre-parlamentares-22157116', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-oglobo.jpg', title='Jornal O Globo')
+                  h4.title Jornal O Globo
+                    br
+                    small.text-muted oglobo.globo.com
+                    br
+                    small.text-muted 06/12/2017
+              .col-md-4
+                .team-player
+                  a(href='https://oglobo.globo.com/projetos/reagerio/', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-reagerio.jpg', title='2ª Edição do Seminário Reage, Rio!')
+                  h4.title 2ª Edição do Seminário Reage, Rio!
+                    br
+                    small.text-muted Rio de Janeiro - RJ
+                    br
+                    small.text-muted 06/12/2017
+              .col-md-4
+                .team-player
+                  a(href='http://www.politize.com.br/gabinetes-abertos-o-que-sao/', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-politize.jpg', title='O que são mandatos e gabinetes abertos?')
+                  h4.title Politize!
+                    br
+                    small.text-muted www.politize.com.br
+                    br
+                    small.text-muted 29/11/2017
+            .row
+              .col-md-4
+                .team-player
+                  a(href='http://networkscience.com.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-simposio.jpg', title='I Simpósio Internacional Network Science')
+                  h4.title I Simpósio Internacional Network Science
+                    br
+                    small.text-muted Rio de Janeiro - RJ
+                    br
+                    small.text-muted 07/11/2017
+              .col-md-4
+                .team-player
+                  a(href='http://www.unisinos.br/noticias/graduacao/a-nova-voz', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-unisinos.jpg', title='Universidade UNISINOS')
+                  h4.title Universidade UNISINOS
+                    br
+                    small.text-muted Porto Alegre - RS
+                    br
+                    small.text-muted 09/10/2017
+              .col-md-4
+                .team-player
+                  a(href='https://dadosabertos.camara.leg.br/community/blogger.html', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-camara.jpg', title='Câmara de Deputados')
+                  h4.title Câmara de Deputados
+                    br
+                    small.text-muted Brasília - DF
+                    br
+                    small.text-muted 27/09/2017

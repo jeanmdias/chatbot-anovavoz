@@ -1,0 +1,61 @@
+extends _layout
+block content
+
+  nav.white(role='navigation')
+    .nav-wrapper.container
+      a#logo-container.brand-logo(href='http://www.anovavoz.com.br')
+        img(src='images/anv-logo.jpg', height='58', alt='A Nova Voz')
+      ul.right.hide-on-med-and-down
+        include ./_menu.pug
+      ul#nav-mobile.side-nav
+        include ./_menu.pug
+      a.button-collapse(href='#', data-activates='nav-mobile')
+        i.material-icons menu
+
+  .parallax-container#index-banner
+    .section.no-pad-bot
+      .container
+        br
+        br
+        h1.header.center.teal-text.text-lighten-2 Exerça sua cidadania.
+        .row.center
+          h5.header.col.s12.light Acompanhe o que os nossos representantes estão fazendo no Congresso Nacional.
+        .row.center
+          a#download-button.btn-large.waves-effect.waves-light.teal.lighten-1(href='https://www.facebook.com/chatbotanovavoz', target='_blank') Começar agora
+        br
+        br
+    .parallax
+      img(src='images/anv-banner.jpg' alt='A Nova Voz')
+
+  .container
+    .section
+      .row
+        .col.s12.center#porque_utilizar
+          h4 Política de Privacidade
+      .row
+        .col.s12.m4
+          .icon-block
+            h2.center.teal-text
+              i.material-icons assignment_ind
+            h5.center Sobre o uso de suas Informações Pessoais
+            p.light A  Nova Voz está comprometida em resguardar sua privacidade. As suas informações pessoais são coletadas da API do perfil do usuário da plataforma Facebook. Os dados coletados são Nome e Sobrenome utilizados para personalizar a sua conversa com o nosso chatbot.
+
+        .col.s12.m4
+          .icon-block
+            h2.center.teal-text
+              i.material-icons lock
+            h5.center Sobre o acesso às suas Informações Pessoais
+            p.light Nenhuma informação pessoal será divulgada publicamente e também nos comprometemos a não vender, alugar ou repassar suas informações para terceiros. Infelizmente nenhum serviço web possui 100% de garantia contra invasões e não podemos nos responsabilizar caso isso ocorra.
+
+        .col.s12.m4
+          .icon-block
+            h2.center.teal-text
+              i.material-icons cached
+            h5.center Atualizações na Política de Privacidade
+            p.light Essa Política de Privacidade pode passar por atualizações. Desta forma, recomendamos visitar periodicamente esta página para que você tenha conhecimento sobre as modificações. Antes de usar informações para outros fins, solicitaremos sua autorização.
+
+  .container
+    .section
+      .row
+        .col.s12.center
+          img(src='images/anv-logo.jpg', alt='A Nova Voz')

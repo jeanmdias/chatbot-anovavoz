@@ -1,0 +1,185 @@
+extends _layout
+block content
+
+  nav.navbar.navbar-transparent.navbar-absolute
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation-example')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='http://www.anovavoz.com.br')
+
+      .collapse.navbar-collapse#navigation-example
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='http://www.anovavoz.com.br/dashboard') Painel
+          li
+            a(href='mailto:contato@anovavoz.com.br') Contato
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://twitter.com/useanovavoz', target='_blank')
+              i.fa.fa-twitter
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://www.facebook.com/useanovavoz', target='_blank')
+              i.fa.fa-facebook-square
+          li
+            a(href='http://www.anovavoz.com.br/en') En
+
+  .wrapper
+    .header-filter(style='background-image: url("images/anovavoz-bg.jpg")')
+      .container
+        .row
+          .col-md-6
+            br
+            img(src='images/anovavoz-logo.png', alt='A Nova Voz')
+            br
+            br
+            br
+            br
+            br
+
+    .main.main-raised
+      .container
+        .content
+          .container-fluid.features
+            .row
+              .text-center
+                h2.title Painel de Indicadores
+              .col-lg-4.col-md-6.col-sm-6
+                .card.card-stats
+                  .card-header(data-background-color='orange')
+                    i.material-icons group
+                  .card-content
+                    p.category Parlamentares
+                    h3.title 761
+                  .card-footer
+                    .stats
+                      span Parlamentares com dados coletados
+              .col-lg-4.col-md-6.col-sm-6
+                .card.card-stats
+                  .card-header(data-background-color='orange')
+                    i.fa.fa-facebook
+                  .card-content
+                    p.category Likes
+                    h3.title 1870
+                  .card-footer
+                    .stats
+                      span Curta a página A NOVA VOZ no Facebook
+              .col-lg-4.col-md-6.col-sm-6
+                .card.card-stats
+                  .card-header(data-background-color='orange')
+                    i.fa.fa-twitter
+                  .card-content
+                    p.category Tweets
+                    h3.title 1101
+                  .card-footer
+                    .stats
+                      span Siga o perfil @useanovavoz no Twitter&nbsp;
+                      i.fa.fa-twitter
+
+            .row
+              .col-lg-6.col-md-12
+                .card
+                  .card-header(data-background-color='green')
+                    h4.title Ranking de Senadores
+                    p.category Senadores com maior número de seguidores no A NOVA VOZ
+                  .card-content.table-responsive
+                    table.table.table-hover
+                      thead.text-success
+                        th #
+                        th Nome
+                        th Estado
+                        th % seguidores
+                      tbody
+                        tr
+                          td 1°
+                          td
+                            img.circle(src='http://www.senado.gov.br/senadores/img/fotos-oficiais/senador4988.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Ana Amélia
+                          td RS
+                          td 17,87%
+                        tr
+                          td 2°
+                          td
+                            img.circle(src='http://www.senado.gov.br/senadores/img/fotos-oficiais/senador5533.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Lasier Martins
+                          td RS
+                          td 11,11%
+                        tr
+                          td 3°
+                          td
+                            img.circle(src='http://www.senado.gov.br/senadores/img/fotos-oficiais/senador5322.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Romário
+                          td RJ
+                          td 11,11%
+
+              .col-lg-6.col-md-12
+                .card
+                  .card-header(data-background-color='green')
+                    h4.title Ranking de Deputados Federais
+                    p.category Deputados Federais com maior número de seguidores no A NOVA VOZ
+                  .card-content.table-responsive
+                    table.table.table-hover
+                      thead.text-success
+                        th #
+                        th Nome
+                        th Estado
+                        th % seguidores
+                      tbody
+                        tr
+                          td 1°
+                          td
+                            img.circle(src='http://www.camara.leg.br/internet/deputado/bandep/74847.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Jair Bolsonaro
+                          td RJ
+                          td 11,98%
+                        tr
+                          td 2°
+                          td
+                            img.circle(src='http://www.camara.leg.br/internet/deputado/bandep/160976.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Tiririca
+                          td SP
+                          td 5,39%
+                        tr
+                          td 3°
+                          td
+                            img.circle(src='http://www.camara.leg.br/internet/deputado/bandep/160672.jpg' style='height:50px; width:50px; border-radius:50%;')
+                            span &nbsp; Jean Wyllys
+                          td RJ
+                          td 4,79%
+
+            .row
+              .col-md-4
+                .card
+                  .card-header.card-chart(data-background-color='blue')
+                    .ct-chart#dailySalesChart
+                  .card-content
+                    h4.title Indicador semanal
+                    p.category A Nova Voz
+                  .card-footer
+                    .stats
+                      i.material-icons access_time
+                      span &nbsp; última atualização em 03/12/2017
+              .col-md-4
+                .card
+                  .card-header.card-chart(data-background-color='blue')
+                    .ct-chart#emailsSubscriptionChart
+                  .card-content
+                    h4.title Notificações
+                    p.category A Nova Voz
+                  .card-footer
+                    .stats
+                      i.material-icons access_time
+                      span &nbsp; última atualização em 03/12/2017
+              .col-md-4
+                .card
+                  .card-header.card-chart(data-background-color='blue')
+                    .ct-chart#completedTasksChart
+                  .card-content
+                    h4.title Monitoramento
+                    p.category A Nova Voz
+                  .card-footer
+                    .stats
+                      i.material-icons access_time
+                      span &nbsp; última atualização em 03/12/2017

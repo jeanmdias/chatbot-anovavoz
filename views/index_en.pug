@@ -1,0 +1,186 @@
+extends _layout
+block content
+
+  nav.navbar.navbar-transparent.navbar-absolute
+    .container
+      .navbar-header
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#navigation-example')
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        a.navbar-brand(href='http://www.anovavoz.com.br')
+          img(src='images/anovavoz-logo.png', alt='A Nova Voz')
+
+      .collapse.navbar-collapse#navigation-example
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='http://www.anovavoz.com.br/painel') Dashboard
+          li
+            a(href='mailto:contato@anovavoz.com.br') Contact
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://twitter.com/useanovavoz', target='_blank')
+              i.fa.fa-twitter
+          li
+            a.btn.btn-simple.btn-white.btn-just-icon(href='https://www.facebook.com/useanovavoz', target='_blank')
+              i.fa.fa-facebook-square
+          li
+            a(href='http://www.anovavoz.com.br') BR
+
+  .wrapper
+    .header.header-filter(style='background-image: url("images/anovavoz-bg.jpg")')
+      .container
+        .row
+          .col-md-6
+            h1.title Platform for Transparency and Social Participation
+            a(href='https://www.facebook.com/useanovavoz', target='_blank')
+              button.btn.btn-success.btn-lg(data-toggle='modal', data-target='#myModal') Click here to start
+            h4
+              strong A Nova Voz&nbsp;
+              span is the first chatbot to provide accessibility to the Open Data of Transparency Portals
+
+
+    .main.main-raised
+      .container
+        .text-center.section-landing
+          .features
+            .row
+              h2.title What do we do?
+              .col-md-4
+                .info
+                  .icon.icon-warning
+                    i.material-icons question_answer
+                  h4.info-title Transparency with open data
+                  p In recent years in Brazil, the society has been demanding for more transparency due to the current political moment. Based on this, we created the first chatbot to provide accessibility to the open government data.
+              .col-md-4
+                .info
+                  .icon.icon-success
+                    i.material-icons group
+                  h4.info-title Artifical intelligence for the citizenship
+                  p We use the artifical intelligence in order to provide a new experience for the exercise of citizenship, in a friendly and continuous way. We would like to help the brazilian citizens to access the public information.
+              .col-md-4
+                .info
+                  .icon.icon-info
+                    i.material-icons volume_up
+                  h4.info-title Non-partisan communication
+                  p For a democracy to be considered open and transparent, the citizens need to know what their government is doing. We provide a non-partisan communication channel for a better relationship between government and citizens.
+
+        .section.text-center
+          h2.title Where do we collect information?
+          .team
+            .row
+              .col-md-4
+                .team-player
+                  a(href='https://www12.senado.leg.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-senado.jpg', alt='Camara de Deputados')
+                  h4.title Federal Senate
+                    br
+                    small.text-muted Federal Senate Transparency Portal
+                    br
+                    small.text-muted Brasília - DF
+              .col-md-4
+                .team-player
+                  a(href='http://www2.camara.leg.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-camara.jpg', alt='Unisinos')
+                  h4.title Chamber of Deputies
+                    br
+                    small.text-muted Chamber of Deputies Transparency Portal
+                    br
+                    small.text-muted Brasília - DF
+              .col-md-4
+                .team-player
+                  a(href='http://transparencia.camarapoa.rs.gov.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-poa.jpg', alt='Unisinos')
+                  h4.title Porto Alegre City Council
+                    br
+                    small.text-muted City Council Transparency Portal
+                    br
+                    small.text-muted Porto Alegre - RS
+            .row
+              .col-md-4
+                .team-player
+                  a(href='http://www.camara.rj.gov.br/portransp.php?mt1=portransp', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-rio.jpg', alt='Camara de Deputados')
+                  h4.title Rio de Janeiro City Council
+                    br
+                    small.text-muted City Council Transparency Portal
+                    br
+                    small.text-muted Rio de Janeiro - RJ
+              .col-md-4
+                .team-player
+                  a(href='http://www.camara.sp.gov.br/transparencia', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-sp.jpg', alt='Unisinos')
+                  h4.title São Paulo City Council
+                    br
+                    small.text-muted City Council Transparency Portal
+                    br
+                    small.text-muted São Paulo - SP
+              .col-md-4
+                .team-player
+                  a(href='https://www.ifc.org.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-ifc.jpg', alt='Unisinos')
+                  h4.title Legislative Chamber of Distrito Federal
+                    br
+                    small.text-muted Instituto de Fiscalização e Controle - IFC
+                    br
+                    small.text-muted Brasília - DF
+
+        .text-center#carousel
+          .container
+            .row
+              .col-md-8.col-md-offset-2
+                h2.title How it works?
+                h5.description A Nova Voz is a chatbot that allows you to receive notifications, through Facebook Messenger, detailing the legislative activities of its selected politicians, using open government data.
+                .card.card-raised.card-carousel
+                  .carousel.slide#carousel-example-generic(data-ride='carousel')
+                    .carousel.slide(data-ride='carousel')
+                      ol.carousel-indicators
+                        li.active(data-target='#carousel-example-generic', data-slide-to='0')
+                        li(data-target='#carousel-example-generic', data-slide-to='1')
+                        li(data-target='#carousel-example-generic', data-slide-to='2')
+                        li(data-target='#carousel-example-generic', data-slide-to='3')
+                      .carousel-inner
+                        .item.active
+                          img(src='images/anovavoz-chatbot-01.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-02.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-03.jpg')
+                        .item
+                          img(src='images/anovavoz-chatbot-04.jpg')
+                      a.left.carousel-control(href='#carousel-example-generic', data-slide='prev')
+                        i.material-icons keyboard_arrow_left
+                      a.right.carousel-control(href='#carousel-example-generic', data-slide='next')
+                        i.material-icons keyboard_arrow_right
+
+        .section.text-center
+          h2.title Talking about us
+          .team
+            .row
+              .col-md-4
+                .team-player
+                  a(href='https://dadosabertos.camara.leg.br/community/blogger.html', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-camara.jpg', alt='Camara de Deputados')
+                  h4.title Chamber of Deputies
+                    br
+                    small.text-muted Brasília - DF
+                    br
+                    small.text-muted 27/09/2017
+              .col-md-4
+                .team-player
+                  a(href='http://www.unisinos.br/noticias/graduacao/a-nova-voz', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-unisinos.jpg', alt='Unisinos')
+                  h4.title UNISINOS University
+                    br
+                    small.text-muted Porto Alegre - RS
+                    br
+                    small.text-muted 09/10/2017
+              .col-md-4
+                .team-player
+                  a(href='http://networkscience.com.br', target='_blank')
+                    img.img-raised.img-circle(src='images/imprensa-simposio.jpg', alt='Unisinos')
+                  h4.title I International Symposium Network Science
+                    br
+                    small.text-muted Rio de Janeiro - RJ
+                    br
+                    small.text-muted 07/11/2017
